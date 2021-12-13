@@ -10,8 +10,13 @@ package Platformer;
  */
 public class Player {
     
-    public Player(){
-        
+    GamePanel panel;
+    int x, y;
+    
+    public Player(int x, int y, GamePanel panel){
+        this.panel = panel;
+        this.x = x;
+        this.y = y;
     }
     
 }
