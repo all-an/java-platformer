@@ -2,6 +2,7 @@ package Platformer;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import javax.swing.WindowConstants;
 
 public class App {
     public static void main(String[] args) {
@@ -22,7 +23,7 @@ public class App {
         frame.setTitle("Platformer Game");
         frame.setVisible(true);
         
-        frame.setDefaultCloseOperation(i);
+        frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
     
     }
 }
