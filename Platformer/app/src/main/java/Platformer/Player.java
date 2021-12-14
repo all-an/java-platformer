@@ -4,6 +4,8 @@
  */
 package Platformer;
 
+import java.awt.Color;
+import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
 /**
@@ -29,8 +31,20 @@ public class Player {
         height = 100;
         hitBox = new Rectangle(x, y, width, height);
         
+    } 
+    
+    public void set(){
+        
+        x += xspeed;
+        y += yspeed;
+        
+        hitBox.x = x;
+        hitBox.y = y;
     }
     
-    
+    public void draw(Graphics2D gtd){
+        gtd.setColor(Color.BLACK);
+        gtd.fillRect(x, y, width, height);
+    }
     
 }

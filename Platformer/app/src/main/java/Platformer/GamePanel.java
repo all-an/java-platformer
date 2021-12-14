@@ -22,10 +22,16 @@ public class GamePanel extends javax.swing.JPanel implements ActionListener {
     Timer gameTimer;
     
     public GamePanel(){
+        
+        player = new Player(700, 300, this);
+        
         gameTimer = new Timer();
         gameTimer.schedule(new TimerTask(){
             @Override
             public void run() {
+                player.set();
+                repaint();
+            
             }
             
         },0, 17);
@@ -35,8 +41,10 @@ public class GamePanel extends javax.swing.JPanel implements ActionListener {
         super.paint(g);
         
         Graphics2D gtd = (Graphics2D) g;
+        
+        player.draw(gtd);
     }
-    
+
     @Override
     public void actionPerformed(ActionEvent e) {
         

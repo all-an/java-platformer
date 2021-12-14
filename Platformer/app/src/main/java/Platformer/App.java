@@ -10,7 +10,7 @@ public class App {
         
                 
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        frame.setSize(700, 700);
+        frame.setSize(1400, 700);
         
         /*Full screen
         frame.setExtendedState(frame.MAXIMIZED_BOTH); 
