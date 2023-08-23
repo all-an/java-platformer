@@ -13,7 +13,7 @@ public class MainTest {
 	@Test
 	public void testMain() throws IOException {
 		System.out.println("main");
-		String[] args = null;
+		String[] args = new String[] {"String 1", "String 2", "String 3"};
 		final InputStream original = System.in;
 		final FileInputStream fips = new FileInputStream(new File("C:\\Users\\Public\\code\\java-platformer\\javaplatformer\\src\\main\\java\\org\\main\\Main.java"));
 		System.setIn(fips);
