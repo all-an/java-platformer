@@ -66,6 +66,10 @@ public class Window {
 		if(glfwWindow == NULL){
 			throw new IllegalStateException("Failed to create the GLFW Window");
 		}
+		
+		glfwSetCursorPosCallback(glfwWindow, MouseListener::mousePosCallback);
+		glfwSetMouseButtonCallback(glfwWindow, MouseListener::mouseButtonCallback);
+		glfwSetScrollCallback(glfwWindow, MouseListener::mouseScrollCallback);
 
 		// Make the OpenGL context current
 		glfwMakeContextCurrent(glfwWindow);
