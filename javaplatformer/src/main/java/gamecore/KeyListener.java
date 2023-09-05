@@ -1,17 +1,34 @@
 package gamecore;
 
+import static org.lwjgl.glfw.GLFW.GLFW_PRESS;
+import static org.lwjgl.glfw.GLFW.GLFW_RELEASE;
+
 public class KeyListener {
 
 	private static KeyListener keyListener;
-	private boolean KeyPressed[] = new boolean[350];
+	private boolean keyPressed[] = new boolean[350];
 
 	private KeyListener() {
 
 	}
 
-	public static void keyCallBack(long window, int key, int scanCode, int action, int mods){
-		
+	public static KeyListener get() {
+		if (KeyListener.keyListener == null) {
+			KeyListener.keyListener = new KeyListener();
+		}
+		return KeyListener.keyListener;
 	}
 
+	public static void keyCallBack(long window, int key, int scanCode, int action, int mods){
+		if(action == GLFW_PRESS) {
+			get().keyPressed[key] = true;
+		} else if (action == GLFW_RELEASE) {
+			get().keyPressed[key] = false;
+		}
+	}
+
+	public static boolean isKeyPressed(int keyCode) {
+		return get().keyPressed[keyCode];
+	}
 
 }

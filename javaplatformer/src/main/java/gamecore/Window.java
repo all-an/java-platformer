@@ -4,6 +4,7 @@ import org.lwjgl.Version;
 import org.lwjgl.glfw.GLFWErrorCallback;
 import org.lwjgl.opengl.GL;
 
+import java.time.Instant;
 import java.util.Objects;
 
 import static org.lwjgl.glfw.Callbacks.glfwFreeCallbacks;
@@ -70,6 +71,7 @@ public class Window {
 		glfwSetCursorPosCallback(glfwWindow, MouseListener::mousePosCallback);
 		glfwSetMouseButtonCallback(glfwWindow, MouseListener::mouseButtonCallback);
 		glfwSetScrollCallback(glfwWindow, MouseListener::mouseScrollCallback);
+		glfwSetKeyCallback(glfwWindow, KeyListener::keyCallBack);
 
 		// Make the OpenGL context current
 		glfwMakeContextCurrent(glfwWindow);
@@ -99,6 +101,10 @@ public class Window {
 			glClearColor(1.0f, 0.0f, 0.0f, 0.0f);
 
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // clear the framebuffer
+
+			if(KeyListener.isKeyPressed(GLFW_KEY_SPACE)) {
+				System.out.println("SPACE key is pressed !" + Instant.now());
+			}
 
 			glfwSwapBuffers(glfwWindow); // swap the color buffers
 		}
